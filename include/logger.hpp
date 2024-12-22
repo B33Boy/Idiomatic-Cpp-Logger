@@ -1,5 +1,5 @@
-#ifndef BASE_LOGGER_HPP
-#define BASE_LOGGER_HPP
+#ifndef LOGGER_HPP
+#define LOGGER_HPP
 
 #include <mutex>
 
@@ -27,6 +27,8 @@ namespace Logger
     {
     public:
         void Log(std::string const& message, Level level) const override;
+    private:
+        mutable std::mutex mutex_;
     };
 
 #define LOG(logger, level, message) logger.Log(message, level);
