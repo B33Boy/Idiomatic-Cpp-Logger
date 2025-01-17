@@ -30,12 +30,6 @@ namespace Logger
             return "UNKNOWN";
         }
     }
-
-    constexpr const char* LEVEL_INFO = to_string(Level::INFO);
-    constexpr const char* LEVEL_DEBUG = to_string(Level::DEBUG);
-    constexpr const char* LEVEL_WARN = to_string(Level::WARNING);
-    constexpr const char* LEVEL_CRIT = to_string(Level::CRITICAL);
-    constexpr const char* LEVEL_ERROR = to_string(Level::ERROR);
 }
 
 #endif

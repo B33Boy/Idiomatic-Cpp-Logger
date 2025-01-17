@@ -31,11 +31,10 @@ void logdemo1()
 
 void logdemo2()
 {
-    CRTPLogger::FileLogger file_logger;
-
+    CRTPLogger::ConsoleLogger file_logger;
     for (int i = 0; i < 100; i++)
     {
-        file_logger.Log(Logger::Level::DEBUG, std::to_string(i));
+        file_logger.Log(Logger::Level::INFO, "Char: " + std::to_string(i));
     }
 }
 

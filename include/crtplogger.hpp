@@ -15,8 +15,15 @@ namespace CRTPLogger
     public:
         void Log(Logger::Level const& level, std::string const& message) const
         {
-            std::cout << "[" << static_cast<Derived const*>(this)->log_type() << "] "
-                << "" << Logger::to_string(level) << " " << message << "\n";
+            std::cout << "[" << d().log_type() << "] " << "" << Logger::to_string(level) << " " << message << "\n";
+        }
+    private:
+        CRTPLogger() {};
+        friend Derived;
+
+        Derived const& d() const
+        {
+            return static_cast<Derived const&>(*this);
         }
     };
 
