@@ -3,6 +3,7 @@
 #include <vector>
 
 #include "logger.hpp"
+#include "crtplogger.hpp"
 
 
 void logMessages(Logger::BaseLogger const& logger, int thread_id)
@@ -11,8 +12,7 @@ void logMessages(Logger::BaseLogger const& logger, int thread_id)
         LOG(logger, Logger::Level::INFO, "Message:" + std::to_string(i) + " , thread:" + std::to_string(thread_id));
 }
 
-
-int main()
+void logdemo1()
 {
     Logger::ConsoleLogger con_log{};
 
@@ -27,6 +27,29 @@ int main()
 
     for (auto& thread : threads)
         thread.join();
+}
+
+void logdemo2()
+{
+    CRTPLogger::FileLogger file_logger;
+
+    for (int i = 0; i < 100; i++)
+    {
+        file_logger.Log(Logger::Level::DEBUG, std::to_string(i));
+    }
+}
+
+int main()
+{
+    /**
+     *  Threadsafe Logging using virtual dispatch
+     */
+     // logdemo1();
+
+    /**
+      * CRTP based logging
+      */
+    logdemo2();
 
     return 0;
 }

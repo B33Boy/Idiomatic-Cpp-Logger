@@ -2,20 +2,10 @@
 #define LOGGER_HPP
 
 #include <mutex>
+#include "log_levels.hpp"
 
 namespace Logger
 {
-    enum class Level
-    {
-        DEBUG,
-        INFO,
-        WARNING,
-        ERROR,
-        CRITICAL
-    };
-
-    auto to_string(Level const& level) -> std::string;
-
     class BaseLogger
     {
     public:

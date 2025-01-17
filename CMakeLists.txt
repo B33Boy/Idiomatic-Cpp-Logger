@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True) 
 option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 
-add_library(Logger STATIC src/logger.cpp src/console_logger.cpp)
+add_library(Logger STATIC src/console_logger.cpp)
 target_include_directories(Logger PUBLIC ${CMAKE_SOURCE_DIR}/include)
 
 add_executable(main src/main.cpp)
